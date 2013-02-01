@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 @login_required
 def home(request):
@@ -12,14 +13,13 @@ def home(request):
 def ingresar(request):
     logout(request)
     mensaje = u''
-
     if request.method == 'POST':
         if request.POST['email'] and request.POST['password']:
             user = authenticate(username=request.POST['email'], password=request.POST['password'])
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect('/kurso/home/')
+                    return HttpResponseRedirect(reverse('home_view'))
             else:
                 mensaje = u'El usuario y/o la contrasena es incorrecta'
     return render_to_response('ingresar.html', {'msj': mensaje},
