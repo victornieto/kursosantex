@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, include, url
 import settings
-from kursoapp.views import ingresar, salir
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from kursoapp.views import *
@@ -11,8 +10,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'kurso.views.home', name='home'),
     url(r'^kurso/', include('kursoapp.urls')),
-    url(r'^logout$', logout),
-    url(r'^login$', login),
+    url(r'^logout$', custom_logout),
+    url(r'^login$', custom_login),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
