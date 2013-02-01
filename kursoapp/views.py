@@ -13,7 +13,6 @@ def home(request):
 def custom_login(request):
     logout(request)
     mensaje = u''
-
     if request.method == 'POST':
         if request.POST['email'] and request.POST['password']:
             user = authenticate(username=request.POST['email'], password=request.POST['password'])
