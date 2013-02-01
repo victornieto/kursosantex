@@ -21,7 +21,7 @@ def login(request):
                     login(request, user)
                     return HttpResponseRedirect(next)
             else:
-                mensaje = u'El usuario y/o la contraseña es incorrecta'
+                mensaje = u'El usuario y/o la contrasena es incorrecta'
     return render_to_response('ingresar.html', {'msj': mensaje},
         context_instance=RequestContext(request))
 
