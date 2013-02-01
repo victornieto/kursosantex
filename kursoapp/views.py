@@ -9,7 +9,7 @@ def home(request):
     d = {'parametro': "Hola mundo!"}
     return render_to_response('home.html', d,context_instance=RequestContext(request))
 
-def ingresar(request):
+def login(request):
     logout(request)
     mensaje = u''
 
@@ -25,5 +25,5 @@ def ingresar(request):
     return render_to_response('ingresar.html', {'msj': mensaje},
         context_instance=RequestContext(request))
 
-def salir(request):
-    pass
+def logout(request):
+    return render_to_response('home.html', {},context_instance=RequestContext(request))

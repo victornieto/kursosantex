@@ -3,14 +3,16 @@ import settings
 from kursoapp.views import ingresar, salir
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from kursoapp.views import *
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'kurso.views.home', name='home'),
     url(r'^kurso/', include('kursoapp.urls')),
-    url(r'^salir/$', salir),
-    url(r'^ingresar/$', ingresar),
+    url(r'^logout$', logout),
+    url(r'^login$', login),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
