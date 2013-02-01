@@ -19,7 +19,7 @@ def ingresar(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect(next)
+                    return HttpResponseRedirect('/kurso/home/')
             else:
                 mensaje = u'El usuario y/o la contrasena es incorrecta'
     return render_to_response('ingresar.html', {'msj': mensaje},
