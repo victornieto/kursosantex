@@ -14,7 +14,7 @@
             {% if next %}
                 <input type="hidden" name="next" value="{{ next }}"/>
             {% else %}
-                <input type="hidden" name="next" value="{% url home %}"/>
+                <input type="hidden" name="next" value="{% url home_view %}"/>
             {% endif %}
             <li>
                 <input type="submit" class="submit" value="Ingresar" id="sign-in"/>
