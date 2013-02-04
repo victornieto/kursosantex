@@ -6,3 +6,7 @@ class RespuestaBlogPostForm(forms.ModelForm):
 
     class Meta:
         model = RespuestaBlogPost
+
+class HomePostForm(forms.ModelForm):
+    class Meta:
+        model = HomePost
