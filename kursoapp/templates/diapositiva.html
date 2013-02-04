@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <form method="post" action="{% url diapositiva %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="submit" value="Save"/>
+    </form>
+{% endblock %}

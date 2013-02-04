@@ -10,3 +10,8 @@ class RespuestaBlogPostForm(forms.ModelForm):
 class HomePostForm(forms.ModelForm):
     class Meta:
         model = HomePost
+
+
+class DiapositivaForm(forms.ModelForm):
+    class Meta:
+        model = Diapositiva
