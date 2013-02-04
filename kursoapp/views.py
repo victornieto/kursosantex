@@ -18,7 +18,7 @@ def new_home_post(request):
     if request.method == 'POST':
         form = HomePostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save(commit=False)
+            form.save()
             return HttpResponseRedirect(reverse('home_view'))
     else:
         form = HomePostForm()
