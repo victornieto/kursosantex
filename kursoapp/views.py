@@ -9,21 +9,3 @@ from django.core.urlresolvers import reverse
 def home(request):
     d = {'parametro': "Hola mundo!"}
     return render_to_response('home.html', d,context_instance=RequestContext(request))
-
-def ingresar(request):
-    logout(request)
-    mensaje = u''
-    if request.method == 'POST':
-        if request.POST['email'] and request.POST['password']:
-            user = authenticate(username=request.POST['email'], password=request.POST['password'])
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponseRedirect(reverse('home_view'))
-            else:
-                mensaje = u'El usuario y/o la contrasena es incorrecta'
-    return render_to_response('ingresar.html', {'msj': mensaje},
-        context_instance=RequestContext(request))
-
-def salir(request):
-    pass
