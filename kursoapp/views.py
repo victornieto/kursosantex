@@ -4,11 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from forms import HomePostForm
+from models import HomePost
 
 @login_required
 def home(request):
-    form = HomePostForm()
-    d = {'parametro': "Hola mundo!", "form": form}
+    posts = HomePost.objects.all()
+    d = {'parametro': "Hola mundo!", "posts": posts}
     return render_to_response('home.html', d, context_instance=RequestContext(request))
 
 
